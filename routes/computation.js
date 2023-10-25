@@ -3,19 +3,14 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  x=0
-if(req.query.x === undefined){
-  x = Math.random(7);
-}else{
-  x = req.query.x;
-  }
-exp = math.exp(x);
-   
+  if(req.query.x === undefined){
+    x = Math.random().toFixed(3);
+  }
+  else{
+    x = req.query.x;
+  }
+  var exp = Math.exp(x).toFixed(3);
+  res.send(`expression applied to ${x} is ${exp}`);
+});
 
-  // Prepare the response string
- 
-
-  res.send("expression applied to " + x + "is" + exp);
-});``
-
-module.exports = router;
+module.exports = router;
